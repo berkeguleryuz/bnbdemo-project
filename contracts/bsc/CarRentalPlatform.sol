@@ -190,7 +190,7 @@ contract CarRentalPlatform is ReentrancyGuard {
         emit CheckOut(msg.sender, id);
     }
 
-    // checkIn #existingUser #userHasRentedACar
+    // checkIn #existingUser #userHasRentedACar #needupdate
     function checkIn() external {
         require(isUser(msg.sender), "User does not exist");
         uint rentedCarId = users[msg.sender].rentedCarId;

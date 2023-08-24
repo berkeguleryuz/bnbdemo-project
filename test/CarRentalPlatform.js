@@ -1,6 +1,6 @@
 const CarRentalPlatform = artifacts.require("CarRentalPlatform");
 
-contract("CarRentalPlatform", accounts => {
+contract("CarRentalPlatform", (accounts) => {
   let carRentalPlatform;
   const owner = accounts[0];
   const user1 = accounts[1];
