@@ -65,7 +65,7 @@ contract("CarRentalPlatform", (accounts) => {
 
       const user = await carRentalPlatform.getUser(user1);
 
-      assert.equal(userRentedCarId, 0, "User could not check in the car");
+      assert.equal(user.rentedCarId, 0, "User could not check in the car");
       assert.equal(user.debt, 10, "User debt did not get created");
     });
   });
@@ -173,14 +173,14 @@ contract("CarRentalPlatform", (accounts) => {
       await carRentalPlatform.deposit({ from: user1, value: 1000 });
       await carRentalPlatform.makePayment({ from: user1 });
 
-      const totalPaymentAmount = await carRentalPlatform.getTotalPeyments({
+      const totalPaymentAmount = await carRentalPlatform.getTotalPayments({
         from: owner,
       });
       const amountToWithdraw = totalPaymentAmount - 10;
       await carRentalPlatform.withdrawOwnerBalance(amountToWithdraw, {
         from: owner,
       });
-      const totalPayment = await carRentalPlatform.getTotalPeyments({
+      const totalPayment = await carRentalPlatform.getTotalPayments({
         from: owner,
       });
       assert.equal(totalPayment, 10, "Owner could not withdraw tokens");

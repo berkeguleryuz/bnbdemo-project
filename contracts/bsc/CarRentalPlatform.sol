@@ -331,8 +331,8 @@ contract CarRentalPlatform is ReentrancyGuard {
         return address(this).balance;
     }
 
-    // getTotalPayment #onlyOwner
-    function getTotalPeyment() external view onlyOwner returns (uint) {
+    // getTotalPayments #onlyOwner
+    function getTotalPayments() external view onlyOwner returns (uint) {
         return totalPayments;
     }
 }
